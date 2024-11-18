@@ -74,12 +74,12 @@ Make sure you have **Python 3.x** installed. You will also need `pip` for managi
 
 Feel free to fork this project and create pull requests. Contributions are welcome!
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgements
 
 - Flask documentation: https://flask.palletsprojects.com/
 - NetworkX documentation: https://networkx.github.io/
 - Vis.js documentation: https://visjs.org/
+
+### Author
+
+Created by K.Vamsi.
