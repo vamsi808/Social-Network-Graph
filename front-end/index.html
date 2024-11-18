@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Network Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network/"></script>
+</head>
+<body>
+    <header>
+        <h1>Social Network Visualization</h1>
+    </header>
+    <div id="network"></div>
+
+    <script>
+        var nodes = new vis.DataSet([
+            { id: 1, label: 'User1' },
+            { id: 2, label: 'User2' },
+            { id: 3, label: 'User3' }
+        ]);
+
+        var edges = new vis.DataSet([
+            { from: 1, to: 2 },
+            { from: 2, to: 3 }
+        ]);
+
+        var container = document.getElementById('network');
+        var data = { nodes: nodes, edges: edges };
+        var options = {};
+        var network = new vis.Network(container, data, options);
+
+        // Fetch and render network data dynamically
+        fetch('/get_connections/User1')
+            .then(response => response.json())
+            .then(data => {
+                data.connections.forEach(connection => {
+                    nodes.add({ id: connection, label: connection });
+                    edges.add({ from: 'User1', to: connection });
+                });
+            });
+    </script>
+</body>
+</html>
