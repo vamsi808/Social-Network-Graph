@@ -1,0 +1,7 @@
+
+image:
+  file: .gitpod.dockerfile
+
+tasks:
+  - init: python install_requirements.py
+    command: python -m flask run
